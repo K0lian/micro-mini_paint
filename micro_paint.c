@@ -33,20 +33,20 @@ int get_background(FILE *file, t_matrix *matrix)   	// build and filling startin
 			if (!(matrix->map[i] = malloc(matrix->width)))       	// 2nd malloc in cycle, on width
 				return 1;
 			for(int j=0; j < matrix->width; j++)
-				matrix->map[i][j] = matrix->color;   	// filling mx->map with mx->clr
+				matrix->map[i][j] = matrix->color;   		// filling mx->map with mx->clr
 		}
 		return 0;
 	}
 	return 1;
 }
 
-int is_rectangle(float x, float y, t_rectangle *rectangle)   // check is our point in the rectangle ("1" mode) or on rectangle side ("2" mode)
+int is_rectangle(float x, float y, t_rectangle *rectangle)   // check is our point in the rectangle ("1" mode) or at the edge of the circle ("2" mode)
 {
 	if (x >= rectangle->x && y >= rectangle->y && x <= rectangle->width && y <= rectangle->height)
 	{
 		if (x - rectangle->x < 1.0F || y - rectangle->y < 1.0F || rectangle->width - x < 1.0F || rectangle->height - y < 1.0F)
-			return 2;  // in the rectangle
-		return 1;          // on the rectangle side
+			return 2;  // at the edge of the circle
+		return 1;          // in the rectangle
 	}
 	return 0;                  // over rectangle
 }
