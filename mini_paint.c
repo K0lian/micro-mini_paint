@@ -40,7 +40,7 @@ int get_background(FILE *file, t_matrix *matrix)   	// build and filling startin
 	return 1;
 }
 
-int is_circle(float x, float y, t_circle *circle)   // check is our point in the circle ("2" mode) or at the edge of the circle ("1" mode)
+int is_circle(float x, float y, t_circle *circle)   // check is our point in the circle ("1" mode) or at the edge of the circle ("2" mode)
 {
 	float dlina = sqrtf(powf(x - circle->x, 2.) + powf(y - circle->y, 2.));		// counting the distanse between our point ([x][y]) with center of circle
 	if (dlina <= circle->radius)
